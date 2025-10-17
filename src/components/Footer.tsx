@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -6,7 +6,7 @@ export function Footer() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -16,23 +16,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <img
-                src="https://atlanticksolutions.com/wp-content/uploads/2024/12/atlantic_logo.svg"
-                alt="Atlantic K Solutions"
-                className="h-12 w-auto brightness-0 invert"
-                onError={(e) => {
-                  // Fallback to local logo if remote URL fails
-                  const target = e.target as HTMLImageElement;
-                  target.src = "/assets/logo-fallback.png"; // <-- Place your fallback image in public/assets/
-                  target.className = "h-12 w-auto brightness-0 invert";
-                }}
-              />
+            <div className="mb-4">
+              <span className="text-2xl font-bold text-primary">Atlantick Solutions</span>
             </div>
             <p className="text-slate-300 mb-4 max-w-md">
-              Transforming businesses through innovative technology solutions.
-              We build websites, mobile apps, and custom software that drive
-              growth.
+              Transforming businesses through innovative technology solutions. We build websites, mobile apps, and custom software that drive growth.
             </p>
             <div className="flex space-x-4">
               <a
@@ -67,34 +55,22 @@ export function Footer() {
             <h4 className="text-white mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
+                <button onClick={() => scrollToSection('home')} className="text-slate-400 hover:text-primary transition-colors">
                   Home
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
+                <button onClick={() => scrollToSection('services')} className="text-slate-400 hover:text-primary transition-colors">
                   Services
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("projects")}
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
+                <button onClick={() => scrollToSection('projects')} className="text-slate-400 hover:text-primary transition-colors">
                   Projects
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("about")}
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
+                <button onClick={() => scrollToSection('about')} className="text-slate-400 hover:text-primary transition-colors">
                   About
                 </button>
               </li>
@@ -106,34 +82,44 @@ export function Footer() {
             <h4 className="text-white mb-4">Services</h4>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
+                <a href="#" className="text-slate-400 hover:text-primary transition-colors">
                   Web Development
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
+                <a href="#" className="text-slate-400 hover:text-primary transition-colors">
                   Mobile Apps
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
+                <a href="#" className="text-slate-400 hover:text-primary transition-colors">
                   AI & ML Solutions
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
+                <a href="#" className="text-slate-400 hover:text-primary transition-colors">
                   Custom Software
                 </a>
               </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-slate-400 mb-4 md:mb-0">
+            &copy; {currentYear} Atlantic K Solutions. All rights reserved.
+          </p>
+          <div className="flex space-x-6">
+            <a href="#" className="text-slate-400 hover:text-primary transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-slate-400 hover:text-primary transition-colors">
+              Terms of Service
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

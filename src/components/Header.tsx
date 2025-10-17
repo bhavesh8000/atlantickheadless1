@@ -35,18 +35,7 @@ export function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <button onClick={() => scrollToSection('home')} className="flex items-center">
-            <img 
-              src="https://atlanticksolutions.com/wp-content/uploads/2024/12/atlantic_logo.svg" 
-              alt="Atlantic K Solutions" 
-              className="h-12 w-auto dark:brightness-0 dark:invert"
-              onError={(e) => {
-                // Fallback to imported logo if URL fails
-                const target = e.target as HTMLImageElement;
-                import('figma:asset/e0ba49927eec130fdaffcb42d65da72138fd5035.png').then(module => {
-                  target.src = module.default;
-                });
-              }}
-            />
+            <span className="text-2xl font-bold text-primary">Atlantick Solutions</span>
           </button>
 
           {/* Desktop Navigation */}
