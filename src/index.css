@@ -721,6 +721,10 @@
     height: calc(var(--spacing) * 20);
   }
 
+  .h-24 {
+    height: calc(var(--spacing) * 24);
+  }
+
   .h-32 {
     height: calc(var(--spacing) * 32);
   }
@@ -783,6 +787,10 @@
 
   .w-16 {
     width: calc(var(--spacing) * 16);
+  }
+
+  .w-24 {
+    width: calc(var(--spacing) * 24);
   }
 
   .w-32 {
@@ -997,6 +1005,11 @@
     border-width: 2px;
   }
 
+  .border-4 {
+    border-style: var(--tw-border-style);
+    border-width: 4px;
+  }
+
   .border-t {
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
@@ -1023,6 +1036,16 @@
 
   .border-input {
     border-color: var(--input);
+  }
+
+  .border-primary\/20 {
+    border-color: var(--primary);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-primary\/20 {
+      border-color: color-mix(in oklab, var(--primary) 20%, transparent);
+    }
   }
 
   .border-primary\/30 {
@@ -1345,6 +1368,11 @@
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
 
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
@@ -1585,13 +1613,13 @@
   }
 
   @media (hover: hover) {
-    .group-hover\:bg-primary\/20:is(:where(.group):hover *) {
-      background-color: var(--primary);
+    .group-hover\:border-primary\/40:is(:where(.group):hover *) {
+      border-color: var(--primary);
     }
 
     @supports (color: color-mix(in lab, red, red)) {
-      .group-hover\:bg-primary\/20:is(:where(.group):hover *) {
-        background-color: color-mix(in oklab, var(--primary) 20%, transparent);
+      .group-hover\:border-primary\/40:is(:where(.group):hover *) {
+        border-color: color-mix(in oklab, var(--primary) 40%, transparent);
       }
     }
   }
@@ -1935,6 +1963,13 @@
     .md\:text-4xl {
       font-size: var(--text-4xl);
       line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+  }
+
+  @media (width >= 48rem) {
+    .md\:text-5xl {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
 

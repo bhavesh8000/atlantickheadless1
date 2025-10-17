@@ -1,6 +1,9 @@
 import { motion } from 'motion/react';
 import { Target, Users, Award, TrendingUp, Linkedin, Code, TestTube } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import anoshImage from 'figma:asset/fa95563fe2f2556ecf7b82cba056d661527881d5.png';
+import arashImage from 'figma:asset/ecf646afd0bb7e3b237f9ae3e6a3f4ceeb96ba16.png';
+import anuragImage from 'figma:asset/15a15a2082f44a918c9d0260dcf4709123c75d02.png';
 
 const stats = [
   { icon: Users, label: 'Happy Clients', value: '100+' },
@@ -34,18 +37,21 @@ const founders = [
     role: 'Co-Founder',
     description: 'Anosh oversees operations, ensuring seamless execution and efficient resource management. His expertise drives innovation and excellence in delivering cutting-edge IT solutions.',
     linkedin: 'https://in.linkedin.com/in/anosh-ilavia-577582a',
+    image: anoshImage,
   },
   {
     name: 'Arash Ilavia',
     role: 'Co-Founder',
     description: 'Arash spearheads strategic growth, finance, and global business development. His leadership ensures scalable solutions and a strong international presence for the company.',
     linkedin: 'https://in.linkedin.com/in/arash-ilavia-207913227',
+    image: arashImage,
   },
   {
     name: 'Anurag Srivastava',
     role: 'Director',
     description: "Anurag leads the company's technology and innovation, driving the transition from traditional services to advanced software product engineering. His vision shapes the company's tech-driven future.",
     linkedin: 'https://www.linkedin.com/in/anuragsrivastava',
+    image: anuragImage,
   },
 ];
 
@@ -57,22 +63,10 @@ const teamMembers = [
     icon: Code,
   },
   {
-    name: 'Prateek',
-    role: 'Frontend Developer',
-    skills: ['ReactJS', 'NextJS', 'JavaScript', 'HTML', 'CSS', 'AngularJS', 'TypeScript'],
-    icon: Code,
-  },
-  {
     name: 'Nikhil',
     role: 'Frontend Developer',
     skills: ['ReactJS', 'JavaScript', 'HTML', 'CSS', 'AngularJS'],
     icon: Code,
-  },
-  {
-    name: 'Anju',
-    role: 'QA Engineer',
-    skills: ['Manual Testing', 'Selenium', 'JMeter'],
-    icon: TestTube,
   },
   {
     name: 'Ankit',
@@ -190,7 +184,7 @@ export function About() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h3 className="text-[#05264e] dark:text-foreground text-center mb-12">Our Founders</h3>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#05264e] dark:text-foreground text-center mb-12">Our Founders</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {founders.map((founder, index) => (
               <motion.div
@@ -201,22 +195,29 @@ export function About() {
                 viewport={{ once: true }}
                 className="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all hover:shadow-lg group"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h4 className="text-[#05264e] dark:text-foreground mb-1">{founder.name}</h4>
-                    <p className="text-primary">{founder.role}</p>
+                <div className="mb-6">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all">
+                    <img
+                      src={founder.image}
+                      alt={founder.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
+                </div>
+                <div className="text-center mb-4">
+                  <h4 className="text-[#05264e] dark:text-foreground mb-2">{founder.name}</h4>
+                  <p className="text-primary mb-4">{founder.role}</p>
                   <a
                     href={founder.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-primary/10 border border-primary/30 rounded-xl flex items-center justify-center text-[#e95f33] hover:bg-primary hover:text-white transition-all"
+                    className="inline-flex w-12 h-12 bg-primary/10 border border-primary/30 rounded-xl items-center justify-center text-[#e95f33] hover:bg-primary hover:text-white transition-all"
                     aria-label={`${founder.name}'s LinkedIn`}
                   >
                     <Linkedin size={20} />
                   </a>
                 </div>
-                <p className="text-foreground/70 leading-relaxed">{founder.description}</p>
+                <p className="text-foreground/70 leading-relaxed text-center">{founder.description}</p>
               </motion.div>
             ))}
           </div>
@@ -231,12 +232,12 @@ export function About() {
           className="mb-20"
         >
           <div className="text-center mb-12">
-            <h3 className="text-[#05264e] dark:text-foreground mb-4">Our Development Team</h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#05264e] dark:text-foreground mb-4">Our Development Team</h2>
             <p className="text-foreground/70 max-w-2xl mx-auto">
               Meet the talented professionals who bring your ideas to life with their expertise and dedication.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -246,13 +247,17 @@ export function About() {
                 viewport={{ once: true }}
                 className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all hover:shadow-lg group"
               >
-                <div className="flex items-start space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-primary/10 border border-primary/30 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <member.icon className="text-[#e95f33]" size={24} />
+                <div className="mb-4">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all bg-primary/5">
+                    <ImageWithFallback
+                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop"
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div>
+                  <div className="text-center">
                     <h4 className="text-[#05264e] dark:text-foreground mb-1">{member.name}</h4>
-                    <p className="text-primary">{member.role}</p>
+                    <p className="text-primary text-sm">{member.role}</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
