@@ -118,14 +118,15 @@ export function HeroSlider() {
           </div>
 
           {/* Content */}
-          <div className="container mx-auto px-4 lg:px-8 relative z-10 h-full flex items-center">
-            <div className="max-w-3xl">
+          <div className="container mx-auto px-20 lg:px-32 relative z-10 h-full flex items-center justify-center">
+            <div className="max-w-4xl text-center">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex justify-center mb-6"
               >
-                <div className="inline-flex items-center space-x-2 bg-accent backdrop-blur-sm border border-border rounded-full px-4 py-2 mb-6">
+                <div className="inline-flex items-center space-x-2 bg-accent backdrop-blur-sm border border-border rounded-full px-4 py-2">
                   <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
                   <span className="text-foreground/80">Atlantic K Solutions</span>
                 </div>
@@ -135,7 +136,7 @@ export function HeroSlider() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-[#05264e] dark:text-foreground mb-4"
+                className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#05264e] dark:text-foreground mb-4"
               >
                 {slides[currentSlide].title}
               </motion.h1>
@@ -144,7 +145,7 @@ export function HeroSlider() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="bg-gradient-to-r from-primary via-[#e95f33] to-primary bg-clip-text text-transparent mb-6"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-[#e95f33] to-primary bg-clip-text text-transparent mb-6"
               >
                 {slides[currentSlide].subtitle}
               </motion.h2>
@@ -153,7 +154,7 @@ export function HeroSlider() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-foreground/80 mb-8 max-w-2xl"
+                className="text-lg md:text-xl text-foreground/80 mb-8 mx-auto max-w-2xl"
               >
                 {slides[currentSlide].description}
               </motion.p>
@@ -162,7 +163,7 @@ export function HeroSlider() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+                className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
                 <Button
                   onClick={() => handleCTAClick(slides[currentSlide].id)}
@@ -187,18 +188,18 @@ export function HeroSlider() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-card/80 backdrop-blur-sm border border-border rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-card/90 backdrop-blur-sm border-2 border-border rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-lg"
         aria-label="Previous slide"
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={28} />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-card/80 backdrop-blur-sm border border-border rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-card/90 backdrop-blur-sm border-2 border-border rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-lg"
         aria-label="Next slide"
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={28} />
       </button>
 
       {/* Dots Navigation */}
