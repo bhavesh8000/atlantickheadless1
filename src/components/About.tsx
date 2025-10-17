@@ -4,6 +4,9 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import anoshImage from 'figma:asset/fa95563fe2f2556ecf7b82cba056d661527881d5.png';
 import arashImage from 'figma:asset/ecf646afd0bb7e3b237f9ae3e6a3f4ceeb96ba16.png';
 import anuragImage from 'figma:asset/15a15a2082f44a918c9d0260dcf4709123c75d02.png';
+import bhaveshImage from 'figma:asset/f6ec3779567ed92647b56b20a56a96007ad2adf5.png';
+import ayushImage from 'figma:asset/95ca4657af66942a942ebcc7238bfdf6719a6961.png';
+import ankitImage from 'figma:asset/6baab36108aadfd0f94e1e16e32380abb40e09c2.png';
 
 const stats = [
   { icon: Users, label: 'Happy Clients', value: '100+' },
@@ -61,24 +64,42 @@ const teamMembers = [
     role: 'Backend Developer & Data Engineer',
     skills: ['Python Django', 'HTML', 'CSS', 'MySQL', 'PostgreSQL', 'BigQuery', 'PowerBI', 'Machine Learning'],
     icon: Code,
+    image: ayushImage,
+  },
+  {
+    name: 'Prateek',
+    role: 'Frontend Developer',
+    skills: ['ReactJS', 'NextJS', 'JavaScript', 'HTML', 'CSS', 'AngularJS', 'TypeScript'],
+    icon: Code,
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop',
   },
   {
     name: 'Nikhil',
     role: 'Frontend Developer',
     skills: ['ReactJS', 'JavaScript', 'HTML', 'CSS', 'AngularJS'],
     icon: Code,
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop',
+  },
+  {
+    name: 'Anju',
+    role: 'QA Engineer',
+    skills: ['Manual Testing', 'Selenium', 'JMeter'],
+    icon: TestTube,
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop',
   },
   {
     name: 'Ankit',
     role: 'Full Stack Developer',
     skills: ['Python Django', 'HTML', 'CSS', 'MySQL', 'PostgreSQL', 'React', 'API Testing', 'Node.js', 'Express.js', 'SvelteKit', 'JavaScript', 'REST APIs'],
     icon: Code,
+    image: ankitImage,
   },
   {
     name: 'Bhavesh',
     role: 'Tech Lead & Project Manager',
     skills: ['PHP', 'WordPress', 'Laravel', 'CodeIgniter', 'Ruby on Rails', 'Python Django', 'HTML', 'CSS', 'JavaScript', 'MySQL', 'PostgreSQL', 'AWS', 'Heroku', 'Team Leadership', 'Project Management'],
     icon: Code,
+    image: bhaveshImage,
   },
 ];
 
@@ -237,7 +258,7 @@ export function About() {
               Meet the talented professionals who bring your ideas to life with their expertise and dedication.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -249,11 +270,19 @@ export function About() {
               >
                 <div className="mb-4">
                   <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all bg-primary/5">
-                    <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop"
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
+                    {typeof member.image === 'string' ? (
+                      <ImageWithFallback
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                   </div>
                   <div className="text-center">
                     <h4 className="text-[#05264e] dark:text-foreground mb-1">{member.name}</h4>
